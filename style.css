@@ -1,0 +1,67 @@
+body{
+	color:#3B694D;
+	/*background:#C3F1D5;*/
+}
+.wrap{
+	width:240px;
+	margin:10px auto;
+	background:#AFDDC1;
+	padding:20px;
+	border-radius: 10px;
+	border: 16px solid #7FAD91;
+}
+input,
+textarea,
+select,
+button {
+	outline:none;
+}
+input,
+select,
+button{
+	border-radius: 5px;
+	border:none;
+	line-height: 1.5;
+}
+input:focus,
+select:focus{
+	box-shadow: 0px 0px 0px 3px #7FAD91;
+}
+select{
+	height: 21px;
+}
+
+.tab{
+	margin:10px auto;
+}
+.cap{
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+	border-radius:50%;
+}
+.tab td{
+	padding: 5px;
+}
+.tab td:nth-child(1){
+	text-align: right;
+}
+.calculate{
+	display:block;
+	margin:10px auto;
+	border:none;
+	border-radius: 4px;
+	padding: 6px;
+	width: 50%;
+	background: #7FAD91;
+	color:#3B694D;
+	font-weight: bold;
+}
+.calculate:hover{
+	color:white;
+}
+
+.sum:focus{
+	border-color:#7FAD91;
+}
+

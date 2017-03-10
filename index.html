@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="favicon.jpg" type="image/jpg">
+	<title>Document</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrap">
+		<table class="tab">
+			<tr>
+				<td>Вклад:</td>
+				<td>
+					<input type="text" size="8" id="sum" class="sum">
+				</td>
+			</tr>
+
+			<tr>
+				<td>Процент:</td>
+				<td>
+					<input type="text" size="2" id="percent" class="percent">
+				</td>
+			</tr>
+
+			<tr>
+				<td>Срок:</td>
+				<td>
+					<select name="" id="term" class="term">
+						<option value="1">1 месяц</option>
+						<option value="3">3 месяца</option>
+						<option value="6">6 месяцев</option>
+						<option value="12" selected>1 год</option>
+						<option value="36">3 года</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Капитализация</td>
+				<td>
+					<input type="checkbox" id="cap" class="cap">
+				</td>
+			</tr>
+
+			<tr>
+				<td>Итог:</td>
+				<td>
+					<span id="result" class="result"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Доход:</td>
+				<td>
+					<span id="income" class="income"></span>
+				</td>
+			</tr>
+		</table>
+		<button id="calculate" class="calculate">Рассчитать</button>
+	</div>
+
+<script src="main.js"></script>
+</body>
+</html>
