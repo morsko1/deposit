@@ -41,7 +41,7 @@ select{
 	border-radius:50%;
 }
 .tab td{
-	padding: 5px;
+	padding: 8px;
 }
 .tab td:nth-child(1){
 	text-align: right;
@@ -65,3 +65,7 @@ select{
 	border-color:#7FAD91;
 }
 
+.msg{
+	position: absolute;
+	/*top: 1em;*/
+}

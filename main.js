@@ -6,7 +6,11 @@ var app = (function () {
 		result = document.getElementById('result'),
 		income = document.getElementById('income'),
 		calculate = document.getElementById('calculate'),
-		calc = function calc () {
+		form = document.forms[0],
+		isNumeric = function (n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		},
+		calc = function () {
 			var sumVal = parseFloat(sum.value),
 				percentVal = parseFloat(percent.value),
 				termVal = parseFloat(term.value),
@@ -24,15 +28,33 @@ var app = (function () {
 				income.innerHTML = (res - sumVal).toFixed(2);
 			}
 		},
+		validate = function () {
+			var sumVal = parseFloat(sum.value);
+			var percentVal = parseFloat(percent.value);
+			if (!isNumeric(parseFloat(sumVal))){
+				sum.setCustomValidity('Введите число');
+			}
+			else {
+				sum.setCustomValidity('');
+			}
+			if (!isNumeric(parseFloat(percentVal))){
+				percent.setCustomValidity('Введите число');
+			}
+			else {
+				percent.setCustomValidity('');
+			}
+		},
 		prevent = function () {
-			document.forms[0].addEventListener("submit", function (event) {
+			form.addEventListener('submit', function (event) {
 				event.preventDefault();
-				return false;
+				return;
 			});
 		}
 		init = function () {
 			prevent();
-			calculate.addEventListener('click', calc);
+			sum.addEventListener('change', validate);
+			percent.addEventListener('change', validate);
+			form.addEventListener('submit', calc);
 		};
 		return {
 			init: init
