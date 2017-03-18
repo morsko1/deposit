@@ -7,14 +7,14 @@ var app = (function () {
 		income = document.getElementById('income'),
 		calculate = document.getElementById('calculate'),
 		form = document.forms[0],
-		isNumeric = function (n) {
-			return !isNaN(parseFloat(n)) && isFinite(n);
-		},
 		calc = function () {
 			var sumVal = parseFloat(sum.value),
 				percentVal = parseFloat(percent.value),
 				termVal = parseFloat(term.value),
 				res = sumVal;
+			if (!sumVal || !percentVal) {
+				return;
+			}
 			if (cap.checked) {
 				for (var i=0; i<termVal; i++) {
 					res = res * ((percentVal / 100) / 12 + 1);
@@ -28,20 +28,16 @@ var app = (function () {
 				income.innerHTML = (res - sumVal).toFixed(2);
 			}
 		},
+		isNumeric = function (n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		},
 		validate = function () {
-			var sumVal = parseFloat(sum.value);
-			var percentVal = parseFloat(percent.value);
-			if (!isNumeric(parseFloat(sumVal))){
-				sum.setCustomValidity('Введите число');
+			var val = parseFloat(this.value);
+			if (!val || !isNumeric(parseFloat(val))){
+				this.setCustomValidity('Введите число');
 			}
 			else {
-				sum.setCustomValidity('');
-			}
-			if (!isNumeric(parseFloat(percentVal))){
-				percent.setCustomValidity('Введите число');
-			}
-			else {
-				percent.setCustomValidity('');
+				this.setCustomValidity('');
 			}
 		},
 		prevent = function () {
@@ -49,7 +45,7 @@ var app = (function () {
 				event.preventDefault();
 				return;
 			});
-		}
+		},
 		init = function () {
 			prevent();
 			sum.addEventListener('change', validate);

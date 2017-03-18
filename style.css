@@ -64,8 +64,3 @@ select{
 .sum:focus{
 	border-color:#7FAD91;
 }
-
-.msg{
-	position: absolute;
-	/*top: 1em;*/
-}
